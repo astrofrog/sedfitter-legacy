@@ -1,0 +1,51 @@
+AVAILABLE VARIABLES - YOU DO NOT NEED TO DECLARE THESE
+    
+                                 --- DATA --- 
+    
+character(len=30) :: s%name                         = source name
+
+real(sp) :: s%x,s%y                                     = coordinates
+
+integer :: s%n_wav                                  = number of wavelengths
+integer :: s%n_data                                 = number of valid fluxes
+						      (valid==1 or valid==4)
+
+integer,dimension(s%n_wav) :: s%valid               = flags from input file
+
+real(sp),dimension(s%n_wav) :: s%flux                   = flux in mJy
+real(sp),dimension(s%n_wav) :: f%flux_error             = flux error in mJy
+
+real(sp),dimension(s%n_wav) :: s%log_flux               = Log10[flux in mJy]
+real(sp),dimension(s%n_wav) :: filt%log_flux_error      = Log10[flux error in mJy]
+
+real(sp),dimension(s%n_wav) :: filt%aperture_arcsec     = apertures specified (arcsec)
+real(sp),dimension(s%n_wav) :: filt%wavelength_microns  = wavelengths in microns
+    
+                                 --- FITS --- 
+    
+integer :: n_fits                                   = number of fits listed for the
+						      current source in the file
+ 
+character(len=30),dimension(n_fits) :: model_name   = the name of the model for each fit
+    
+real(sp),dimension(n_fits) :: chi,av,sc                 = the fit parameters:
+
+  chi = chisquared
+  av  = Av
+  sc  = scalefactor = log(d) for scale-dependent fits)
+
+  these are ordered from best to worst chi value
+    
+                             --- YSO PARAMETERS --- 
+    
+integer :: n_par                                    = number of YSO parameters
+character(len=10) :: c_n_par                        = number of YSO parameters (string)
+real(sp),dimension(n_par) :: par                        = the parameters, containing:
+    
+  name          : the name of the parameter
+  value(n_fits) : the value of the parameter for each fit
+     
+  For example parameter 5 has name par(5)%name, and the value of this parameter for
+  the 10th fit is par(5)%value(10)
+    
+

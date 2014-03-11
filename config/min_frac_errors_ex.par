@@ -1,0 +1,7 @@
+0.1 = minimum fractional error on J flux
+0.1 = minimum fractional error on H flux
+0.1 = minimum fractional error on K flux
+0.1 = minimum fractional error on IRAC [1] flux
+0.1 = minimum fractional error on IRAC [2] flux
+0.1 = minimum fractional error on IRAC [3] flux
+0.1 = minimum fractional error on IRAC [4] flux
