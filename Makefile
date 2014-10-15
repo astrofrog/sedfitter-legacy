@@ -99,6 +99,7 @@ ALL = 		$(COMMON) \
 UTIL = $(COMMON) $(OBJECTS15) $(OBJECTS16) $(OBJECTS17)
 
 all:	$(ALL)
+	mkdir -p src/modules bin/
 	$(FC) $(COMMON) $(OBJECTS1) $(LIB) -o bin/fit
 	$(FC) $(COMMON) $(OBJECTS2) $(LIB) -o bin/fit_stellar
 	$(FC) $(COMMON) $(OBJECTS3) $(LIB) -o bin/plot
@@ -115,6 +116,7 @@ all:	$(ALL)
 	$(FC) $(COMMON) $(OBJECTS14) $(LIB) -o bin/generic_web_s
 
 util:	$(CONVOLVE)
+	mkdir -p src/modules bin/
 	$(FC) $(COMMON) $(OBJECTS15) $(LIB) -o bin/convolve
 	$(FC) $(COMMON) $(OBJECTS16) $(LIB) -o bin/make_monochromatic
 	$(FC) $(COMMON) $(OBJECTS17) $(LIB) -o bin/list2data
